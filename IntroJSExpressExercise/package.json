@@ -1,0 +1,14 @@
+{
+  "name": "introjsexpressexercise",
+  "version": "1.0.0",
+  "description": "exercice",
+  "main": "set.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "storage"
+  ],
+  "author": "",
+  "license": "ISC"
+}
