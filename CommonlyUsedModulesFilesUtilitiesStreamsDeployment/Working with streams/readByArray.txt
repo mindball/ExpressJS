@@ -1,0 +1,3 @@
+Text.app is a simple text editor for Chrome OS and Chrome. 
+It's fast, lets you open multiple files at once, has 
+syntax highlighting
