@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
 
-const dogModel = require('./DogMongooseModels')
+const mongooseModel = require('./mongooseModels');
+const mongoCrud = require('./mongooseCRUD');
+const collectionRelation = require('./collectionRelation');
+
 
 mongoose.Promise = global.Promise;
 const ObjectId = mongoose.ObjectId;
-
 
 mongoose.connect('mongodb://localhost:27017/catsdb', (err) => {
     if(err) {
@@ -12,50 +14,20 @@ mongoose.connect('mongodb://localhost:27017/catsdb', (err) => {
         return;
     }
 
-    
-    dogModel.save()
+    //valid model
+    let dog = new mongooseModel(mongoose, 'Dog') ({
+        name: 'bai zlatko',
+        age: 18
+    });
+    //invalid model:
+    // let dog = new Dog({
+    //     age: 22
+    // })    
+    mongoCrud(dog)
         .then((d) => {
             console.log(d)
-        })
-        //common error
-        // .catch(err => {
-        //     console.log(err)
-        // });
-        //detailed error handler message
-        .catch(err => {
-            let errMsg = err.errors
-            for (let errKey in errMsg) {
-                console.log(errMsg[errKey].message)
-        }
-    });
+        });
 
-    // let animalSchema = new mongoose.Schema({
-    //     name: { type: String, required: true },
-    //     age: { type: Number, default: 0},
-    //     fish: {type: ObjectId}
-    // });
-
-    // let Animal = mongoose.model('Animal', animalSchema);
-
-    // let fishSchema = new mongoose.Schema({
-    //     name: { type: String, required: true }
-    // });
-
-    // let Fish = mongoose.model('Fish', fishSchema);
-
-    // let fish = new Fish({
-    //     name: 'Fish-Ton'
-    // })
-    // .save()
-    // .then((f) => {
-    //     new Animal({
-    //         name: 'AnimalBigBoss',
-    //         age: 15,
-    //         owner: f._id
-    //     })
-    //     .save()
-    //     .then((c) => {
-    //         console.log(c)
-    //     })
-    // });
+///////////////Relation collections////////////////////////////
+    collectionRelation(mongoose);
 })
