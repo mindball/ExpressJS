@@ -2,9 +2,33 @@
 
 ## DeprecationWarning
 ```
-Ако получаваме на консолатата дадени съобщения е добре да въведем в началото на кода следното:
+Ако получаваме на конзолата дадени съобщения е добре да въведем в началото на кода следното:
 mongoose.Promise = global.Promise; //използвай nodejs-promise за mongoose;
 ``` 
+
+## Model.methods
+### These methods can be added to a schema
+```javascript
+//всичките функ-сти, се правят преди да се създаде модела
+let modelSchema = new mongoose.Schema({});
+//arrow function - няма да работи
+modelSchema.methods.nameOfMethods = () => {};
+
+//правилно
+modelSchema.methods.nameOfMethods = function () => {this.something}; 
+//заради this arrow функ. няма да работи, резултата ще е undefined
+```
+### Model virtual properties
+```
+Mongoose provides a way to create properties, that are accessible on all models, but are not persisted to the database
+And they have both getters and setters
+```
+
+## Property Validation
+```
+With Mongoose developers can define custom validation on their properties
+Validate records when trying to save
+```
 
 ## Good practice
 ```javascript
@@ -56,7 +80,7 @@ let fish = new Fish({
 });
 
 //Трябва се внимава когато имам Update, delete в такива релации(animalSchema -> fish: {type: ObjectId}) 
-или ако изтрием fish обекта трябва да намерим всички котки, които имат такава връзка с тази fish
+//или ако изтрием fish обекта трябва да намерим всички котки, които имат такава връзка с тази fish
 ```
 
 ## MongoDB relationships: embed or reference?

@@ -1,5 +1,19 @@
 const mongoCrud = require('./mongooseCRUD');
 
+function findCats (owner, cat) {
+    owner.find({})
+        .then(owners => {
+            console.log(owners)
+
+            for (let o of owners) {
+                cat.find({owner: o._id})
+                .then(cats => {
+                    console.log(cats)
+                })
+            }
+        })
+}
+
 module.exports = function(mongoose) {
      const ObjectId = mongoose.ObjectId;
 
@@ -32,4 +46,5 @@ module.exports = function(mongoose) {
             })
         })
 
+    findCats(Owner, Cat);
 }

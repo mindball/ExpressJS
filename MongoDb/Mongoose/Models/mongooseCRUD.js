@@ -1,5 +1,5 @@
-module.exports = function(dogModel) {
-    return dogModel
+module.exports = function(model) {
+    return model
         .save()
         //common error
         // .catch(err => {

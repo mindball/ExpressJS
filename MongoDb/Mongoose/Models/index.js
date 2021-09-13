@@ -29,5 +29,6 @@ mongoose.connect('mongodb://localhost:27017/catsdb', (err) => {
         });
 
 ///////////////Relation collections////////////////////////////
-    collectionRelation(mongoose);
+    collectionRelation(mongoose);    
+//////////////////////////////////////////////////////////////
 })
