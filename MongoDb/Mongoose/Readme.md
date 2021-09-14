@@ -30,6 +30,17 @@ With Mongoose developers can define custom validation on their properties
 Validate records when trying to save
 ```
 
+## Mongoose queries
+```
+Chain, chain, chain
+All queries are executed over the object returned by Model.find*()
+```
+
+## Mongoose Modules
+```
+Sepate the data layer
+```
+
 ## Good practice
 ```javascript
 	let Cat = mongoose.model('Cat', {
