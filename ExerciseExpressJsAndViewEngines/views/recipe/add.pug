@@ -1,0 +1,21 @@
+extends ../layout.pug
+
+block content  
+    h2 Add recipe 
+    //- добавяме action-а само ако препращаме на друг url
+    //- form(action='/addPost', method='POST')
+    form(method='POST' enctype="multipart/form-data")
+        label Recipe name: 
+        br
+        input(type="text" name="name")
+        br
+        br
+        label Recipe description: 
+        br
+        textarea(name="description")
+        br
+        Label Image
+        br
+        input(type="file" name="image")
+        br
+        input(type="submit" value="Send" )
