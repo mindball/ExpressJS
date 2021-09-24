@@ -33,9 +33,23 @@ module.exports = {
       })
     },
     allGet: (req, res) => {
-      Car.find()
+      let pageSize = 2 //след време може и да са 10
+      let page = parseInt(req.query.page) || 1
+
+      Car.find().lean()
+        .sort( {
+          createdAt: -1
+        })
+        .skip((page-1) * pageSize)
+        .limit(pageSize)
         .then(cars => {
-          res.render('cars/all', {cars: cars})
+          res.render('cars/all', {
+            cars: cars,
+            hasPrevPage: page > 1,
+            hasNextPage: cars.length > 0,
+            prevPage: page - 1,
+            nextPage: page + 1
+          })
         })
     }
 }

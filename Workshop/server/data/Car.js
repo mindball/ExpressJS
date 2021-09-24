@@ -9,6 +9,7 @@ let carSchema = new mongoose.Schema({
     year: { type: Number, required: true },
     power: { type: Number },
     image: { type: String, require: true },
+    createdAt: {type: Date, default: Date.now()},
     pricePerDay: { type: Number, required: true }
 })
 

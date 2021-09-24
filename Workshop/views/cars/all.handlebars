@@ -1,4 +1,17 @@
 
 {{#each cars}}  
-      <h4></h4>     
+      <div class="mb60 car-details">
+          <h2>{{this.make}} {{this.model}}</h2>
+          <h4>{{this.year}} {{this.power}}</h2>
+          <img src={{this.image}} width="500" height="600">
+          <h3>{{this.pricePerDay}}</h3>
+      </div> 
 {{/each}}
+
+{{#if hasPrevPage}}
+    <a href="/cars/all?page={{prevPage}}" class="previous round pr">&#8249;</a>
+{{/if}}
+{{#if hasNextPage}}
+    <a href="/cars/all?page={{nextPage}}" class="next round next">&#8250;</a>
+{{/if}}
+
