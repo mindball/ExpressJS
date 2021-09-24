@@ -51,5 +51,14 @@ module.exports = {
             nextPage: page + 1
           })
         })
+    },
+    carsSearch: (req, res) => {
+      let search = req.query.search.trim().toLowerCase()
+      Car.find({make: new RegExp('^'+search+'$', "i")}).lean()
+        .then(cars => {
+          res.render('cars/all', {
+            cars: cars
+          })
+        })
     }
 }

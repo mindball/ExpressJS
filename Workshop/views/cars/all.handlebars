@@ -1,4 +1,12 @@
 
+<form action="/cars/carsSearch" method="GET">
+    <label for="cars-search">Search cars:</label>
+    <input type="search" id="site-search" name="search"
+        aria-label="Search cars">
+    <button type="submit">Search</button>
+</form>
+
+
 {{#each cars}}  
       <div class="mb60 car-details">
           <h2>{{this.make}} {{this.model}}</h2>
