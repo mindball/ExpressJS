@@ -53,6 +53,8 @@ registerPost: (req, res) => {
 ```
 
 
+
+
 ### При upload на файлове
 > добре е да ги преименуваме поради факта, че потребителя, които ги качва ще знае и 
 > ще може да търси тези файлове според имената. Също така е добре да скрием extensions
@@ -95,4 +97,20 @@ from 2.3.4 to <3.0.0.
 * passport-local
 > Passport strategy for authenticating with a username and password.
 
+### Handlebars some specs
 
+```html
+{{#each cars}}  
+      <div class="mb60 car-details">
+          ...
+		  //Тук се намираме в scope на cars-array и затова нямаме достъп до currentUser,
+		  //трябва да се върнем едно ниво нагоре,
+          {{#if ../currentUser}}
+        <form action="/cars/rent/{{this._id}}" method="POST">            
+            <button type="submit" value="Rent">Rent</button>
+        </form>
+      {{/if}}
+      </div>
+      ...
+{{/each}}
+```

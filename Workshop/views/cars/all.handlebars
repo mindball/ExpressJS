@@ -1,5 +1,5 @@
 
-<form action="/cars/carsSearch" method="GET">
+<form action="/cars/search" method="GET">
     <label for="cars-search">Search cars:</label>
     <input type="search" id="site-search" name="search"
         aria-label="Search cars">
@@ -13,7 +13,22 @@
           <h4>{{this.year}} {{this.power}}</h2>
           <img src={{this.image}} width="500" height="600">
           <h3>{{this.pricePerDay}}</h3>
-      </div> 
+          {{#if ../currentUser}}
+        <form action="/cars/rent/{{this._id}}" method="POST">
+            <select name="days">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+            </select>  
+            <button type="submit" value="Rent">Rent</button>
+        </form>
+      {{/if}}
+      </div>
+      
 {{/each}}
 
 {{#if hasPrevPage}}

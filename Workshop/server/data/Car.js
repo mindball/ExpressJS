@@ -10,9 +10,10 @@ let carSchema = new mongoose.Schema({
     power: { type: Number },
     image: { type: String, require: true },
     createdAt: {type: Date, default: Date.now()},
-    pricePerDay: { type: Number, required: true }
+    pricePerDay: { type: Number, required: true },
+    isRented: { type: Boolean, default: false }
 })
 
-let Car = mongoose.model('Car', carSchema)
+mongoose.model('Car', carSchema)
 
-module.exports = Car
+module.exports = mongoose.model('Car')
