@@ -93,7 +93,7 @@ module.exports = {
               car.save() //ако това fail-не car.isRented трябва да му върнат стойността + 
                         // в рентин документа трябва да изтриеем записа които сме направили по горе
                 .then(c => {
-                  res.redirect('cars/someThankyPage')
+                  res.redirect('/users/profile')
                 })
                 .catch(err => {
                   //Ако случайно не може да се запише че колата е rented трябва да имам правилни данни

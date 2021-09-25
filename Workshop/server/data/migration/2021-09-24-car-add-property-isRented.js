@@ -1,0 +1,1 @@
+db.cars.update({}, {$set: {"isRented": false}}, {multi:true})

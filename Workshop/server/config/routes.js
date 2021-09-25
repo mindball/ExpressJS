@@ -14,6 +14,7 @@ module.exports = (app) => {
   app.get('/users/login', controllers.users.loginGet)
   app.post('/users/login', controllers.users.loginPost)
   app.post('/users/logout', controllers.users.logout)
+  app.get('/users/profile', controllers.users.profileGet)
 
   app.get('/cars/add', auth.isInRole('Admin'), controllers.cars.addGet)
   app.get('/cars/all', controllers.cars.allGet)

@@ -1,5 +1,6 @@
 const encryption = require('../utilities/encryption')
 const User = require('mongoose').model('User')
+const Renting = require('../data/Renting')
 
 module.exports = {
   registerGet: (req, res) => {
@@ -62,5 +63,16 @@ module.exports = {
   logout: (req, res) => {
     req.logout()
     res.redirect('/')
-  }
+  },
+  profileGet: (req, res) => { 
+    let userId = req.user.id  
+
+    Renting.find({user: userId})
+      .populate('car').lean()
+      .then(rentings => {
+        res.render('users/profile', {
+          rentings: rentings
+        })
+      })     
+  }  
 }
