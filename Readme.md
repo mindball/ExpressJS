@@ -52,9 +52,6 @@ registerPost: (req, res) => {
 тоест даваме по детайлна инф. за това
 ```
 
-
-
-
 ### При upload на файлове
 > добре е да ги преименуваме поради факта, че потребителя, които ги качва ще знае и 
 > ще може да търси тези файлове според имената. Също така е добре да скрием extensions
@@ -66,6 +63,7 @@ registerPost: (req, res) => {
 https://semver.npmjs.com/ - calculator
 ```
 ![versioning](https://fv9-1.failiem.lv/thumb_show.php?i=qxb82qj43&view)
+
 ### Using semantic versioning to specify update types your package can accept
 ```
 ~version “Approximately equivalent to version”, will update you to all future 
@@ -98,7 +96,6 @@ from 2.3.4 to <3.0.0.
 > Passport strategy for authenticating with a username and password.
 
 ### Handlebars some specs
-
 ```html
 {{#each cars}}  
       <div class="mb60 car-details">

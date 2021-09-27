@@ -21,6 +21,42 @@ you begin local development on your project.
 ## Using Modules
 ```
 Making Our App Modular. Modules are used with "require“
+Using Modules. Can be required with a file system semantics. When required the file extension is not needed
 ```
 
+
+## Working with cluster
+[Cluster examples](https://www.sitepoint.com/how-to-create-a-node-js-cluster-for-speeding-up-your-apps/)
+
+## Why node.js
+> Perfect for microservices
+> Node.js is written in JavaScript
+> Full control of the server capabilities
+> Asynchronous and fast, one of the fastest web servers
+
+## Streams
+```
+JS is unicode friendly, but not the best when it comes to binary data
+Can be easily transformed into JS object by setting an encoding
+in the buffer’s toString() method
+```
+
+> Readable
+> Writeable
+> Duplex - both Readable and Writeable (tcp sockets)
+> Transform -Duplex streams where the output is computed from the input (zlib, crypto)
+
+```
+HTTP Request is a readable stream
+HTTP Response is a writeable stream
+```
+
+
+
+## Asynchronous Code
+```
+The function callback is the last parameter in the async call.
+Error is the first parameter in the callback
+Always check errors and handle them correctly!
+```
 

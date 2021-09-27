@@ -1,4 +1,5 @@
 ## Routes
+
 ### Paths(routes) can contain special characters
 ```javascript
 //Special symbol * - може да се ползва всеки един route
@@ -15,6 +16,7 @@ app.get(/.*fly$/, (req, res) => {
   res.send('butterfly, dragonfly')
 })
 ```
+
 ### Paths can have parameters
 ```js
 //:userId, :bookId
